@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../data/api.dart';
 import '../data/models/doall.dart';
+import 'detail.dart';
 
 class DoaSearch extends StatefulWidget {
   const DoaSearch({super.key});
@@ -135,18 +136,25 @@ class _DoaSearchState extends State<DoaSearch> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         ListTile(
-                          title: Text(
-                            doaLists[index].doa,
-                            style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w700),
-                          ),
-                          subtitle: Text(
-                            doaLists[index].ayat ?? "null",
-                            style: TextStyle(fontSize: 16),
-                            textAlign: TextAlign.right,
-                            textDirection: TextDirection.rtl,
-                          ),
-                        )
+                            title: Text(
+                              doaLists[index].doa,
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.w700),
+                            ),
+                            subtitle: Text(
+                              doaLists[index].ayat ?? "null",
+                              style: TextStyle(fontSize: 16),
+                              textAlign: TextAlign.right,
+                              textDirection: TextDirection.rtl,
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DoaDetail(
+                                        listDoaDetail: doaLists[index].id),
+                                  ));
+                            })
                       ],
                     ),
                   ),

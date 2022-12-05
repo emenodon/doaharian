@@ -58,6 +58,7 @@ class _DoallState extends State<Doall> {
 
   Widget _itemBuilder(BuildContext context, int index) {
     return Card(
+      elevation: 20,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
         side: BorderSide(
@@ -65,7 +66,7 @@ class _DoallState extends State<Doall> {
         ),
       ),
       child: Container(
-        margin: const EdgeInsets.all(10),
+        margin: const EdgeInsets.all(20),
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
           Text(
             data[index].doa,
@@ -80,6 +81,7 @@ class _DoallState extends State<Doall> {
           Text(
             "Artinya: " + data[index].artinya,
             style: const TextStyle(fontSize: 10, fontStyle: FontStyle.italic),
+            textAlign: TextAlign.justify,
           ),
         ]),
       ),
