@@ -15,14 +15,7 @@ class Doall extends StatefulWidget {
 }
 
 class _DoallState extends State<Doall> {
-  // DoaRepo client = DoaRepo();
-  // DoAll? data;
-
-  // final x = 0;
-
-  // Future<void> getData() async {
-  //   data = await client.getDoall(x);
-  // }
+  final ScrollController scrollController = ScrollController();
   List<DoAll> data = [];
   DoaRepo repo = DoaRepo();
 
@@ -46,8 +39,9 @@ class _DoallState extends State<Doall> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.deepPurple[300]!,
+        backgroundColor: Colors.transparent,
         body: ListView.builder(
+          controller: scrollController,
           padding: const EdgeInsets.all(5.5),
           itemCount: data.length,
           itemBuilder: _itemBuilder,

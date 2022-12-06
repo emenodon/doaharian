@@ -33,18 +33,32 @@ class _DoaDetailState extends State<DoaDetail> {
 
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Detail Doa',
-            style: TextStyle(fontWeight: FontWeight.w900),
+      child: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.bottomRight,
+                end: Alignment.topLeft,
+                colors: [
+              Colors.deepPurple,
+              Colors.deepPurple[300]!,
+              Colors.red,
+            ])),
+        child: Scaffold(
+          appBar: AppBar(
+            leading: BackButton(color: Colors.white),
+            backgroundColor: Colors.transparent,
+            title: const Text(
+              'Detail Doa',
+              style:
+                  TextStyle(fontWeight: FontWeight.w900, color: Colors.white),
+            ),
           ),
-        ),
-        backgroundColor: Colors.deepPurple[300]!,
-        body: ListView.builder(
-          padding: const EdgeInsets.all(10.0),
-          itemCount: data.length,
-          itemBuilder: _itemBuilder,
+          backgroundColor: Colors.transparent,
+          body: ListView.builder(
+            padding: const EdgeInsets.all(10.0),
+            itemCount: data.length,
+            itemBuilder: _itemBuilder,
+          ),
         ),
       ),
     );

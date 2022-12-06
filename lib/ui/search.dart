@@ -3,7 +3,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import '../data/api.dart';
 import '../data/models/doall.dart';
 import 'detail.dart';
 
@@ -24,7 +23,7 @@ class Debouncer {
       timer!.cancel();
     }
     timer = Timer(
-      Duration(milliseconds: Duration.millisecondsPerSecond),
+      const Duration(milliseconds: Duration.millisecondsPerSecond),
       action,
     );
   }
@@ -74,32 +73,39 @@ class _DoaSearchState extends State<DoaSearch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: Column(
         children: <Widget>[
           //Search Bar to List of typed Subject
           Container(
-            padding: EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15),
             child: TextField(
               textInputAction: TextInputAction.search,
               decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(25.0),
-                  borderSide: BorderSide(
-                    color: Colors.grey,
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                    borderSide: const BorderSide(
+                      color: Colors.white24,
+                    ),
                   ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20.0),
-                  borderSide: BorderSide(
-                    color: Colors.deepPurple[300]!,
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                    borderSide: const BorderSide(
+                      color: Colors.white,
+                    ),
                   ),
-                ),
-                suffixIcon: InkWell(
-                  child: Icon(Icons.search),
-                ),
-                contentPadding: EdgeInsets.all(15.0),
-                hintText: 'Search ',
-              ),
+                  suffixIcon: const InkWell(
+                    highlightColor: Colors.white,
+                    child: Icon(
+                      Icons.search,
+                      color: Colors.white,
+                    ),
+                  ),
+                  contentPadding: const EdgeInsets.all(15.0),
+                  hintText: 'Search ',
+                  hintStyle: const TextStyle(
+                    color: Colors.white,
+                  )),
               onChanged: (string) {
                 _debouncer.run(() {
                   setState(() {
@@ -118,8 +124,8 @@ class _DoaSearchState extends State<DoaSearch> {
           Expanded(
             child: ListView.builder(
               shrinkWrap: true,
-              physics: ClampingScrollPhysics(),
-              padding: EdgeInsets.all(5),
+              physics: const ClampingScrollPhysics(),
+              padding: const EdgeInsets.all(5),
               itemCount: doaLists.length,
               itemBuilder: (BuildContext context, int index) {
                 return Card(
@@ -130,7 +136,7 @@ class _DoaSearchState extends State<DoaSearch> {
                     ),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.all(5.0),
+                    padding: const EdgeInsets.all(5.0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -138,12 +144,12 @@ class _DoaSearchState extends State<DoaSearch> {
                         ListTile(
                             title: Text(
                               doaLists[index].doa,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.w700),
                             ),
                             subtitle: Text(
                               doaLists[index].ayat ?? "null",
-                              style: TextStyle(fontSize: 16),
+                              style: const TextStyle(fontSize: 16),
                               textAlign: TextAlign.right,
                               textDirection: TextDirection.rtl,
                             ),
@@ -154,7 +160,7 @@ class _DoaSearchState extends State<DoaSearch> {
                                     builder: (context) => DoaDetail(
                                         listDoaDetail: doaLists[index].id),
                                   ));
-                            })
+                            }),
                       ],
                     ),
                   ),
