@@ -68,7 +68,7 @@ class _DoaDetailState extends State<DoaDetail> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Card(
-                elevation: 20,
+                elevation: 10,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                   side: BorderSide(
