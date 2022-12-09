@@ -1,8 +1,9 @@
 import 'package:doaharian/ui/search.dart';
+import 'package:doaharian/ui/doall.dart';
+import 'package:doaharian/ui/random.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
-import 'ui/doall.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -37,10 +38,7 @@ class _MyAppState extends State<MyApp> {
   static const List<Widget> _widgetOptions = <Widget>[
     Doall(),
     DoaSearch(),
-    Text(
-      'Random',
-      style: optionStyle,
-    ),
+    DoaRandom(),
   ];
   @override
   Widget build(BuildContext context) {
