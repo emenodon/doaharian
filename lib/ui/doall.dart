@@ -66,6 +66,9 @@ class _DoallState extends State<Doall> {
             data[index].doa,
             style: const TextStyle(fontWeight: FontWeight.w700),
           ),
+          const SizedBox(
+            height: 10,
+          ),
           Text(
             data[index].ayat,
             style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),

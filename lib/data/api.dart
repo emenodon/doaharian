@@ -43,7 +43,8 @@ class DoaDetailRepo {
 
 class DoaRandomRepo {
   Future<List<DoAll>> getRandom() async {
-    var baseurl = Uri.parse("https://doa-doa-api-ahmadramadhan.fly.dev/api");
+    var baseurl = Uri.parse(
+        "https://doa-doa-api-ahmadramadhan.fly.dev/api/doa/v1/random");
     final response =
         await http.get(baseurl, headers: {"Accept": "application/json"});
 
