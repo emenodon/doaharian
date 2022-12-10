@@ -80,6 +80,7 @@ class _DoaSearchState extends State<DoaSearch> {
           Container(
             padding: const EdgeInsets.all(15),
             child: TextField(
+              style: const TextStyle(color: Colors.white),
               textInputAction: TextInputAction.search,
               decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
